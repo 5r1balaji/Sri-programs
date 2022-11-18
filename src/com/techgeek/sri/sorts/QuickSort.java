@@ -58,69 +58,31 @@ public class QuickSort {
         printArray(arr);
     }
 
-    // l and r are the first and last indexes of the array
     private void sort(int[] arr, int l, int r) {
         if (l < r) {
-            int pivot = partition(arr, l, r);
+            int pivot = quickSort(arr, l, r);
             sort(arr, l, pivot - 1);
             sort(arr, pivot + 1, r);
         }
-
     }
 
-    private int partition(int[] arr, int l, int r) {
-        int i = l - 1;
-        int j = l;
+    private int quickSort(int[] arr, int l, int r) {
         int pivot = arr[r];
-
-        while (j < r) {
-            if (arr[j] < pivot) {
-                int temp = arr[i + 1];
-                arr[i + 1] = arr[j];
-                arr[j++] = temp;
-                i++;
-            } else  j++;
+        int i, j = l - 1;
+        for (i = l; i < r; i++) {
+            if (arr[i] < pivot) {
+                interchange(arr, j + 1, i);
+                j++;
+            }
         }
-
-
-            int temp = arr[i + 1];
-            arr[i + 1] = arr[j];
-            arr[j] = temp;
-
-
-        return i + 1;
-
+        interchange(arr, j + 1 , r);
+        return j + 1;
     }
 
-
-//    private void sort(int[] arr, int left, int right) {
-//        if (left < right) {
-//            int pivot = partition( arr, left, right);
-//            sort(arr, left, pivot - 1);
-//            sort(arr, pivot + 1, right);
-//        }
-//    }
-//
-//    private int partition(int[] arr, int left, int pivot) {
-//
-//        int i = left - 1;
-//        int j = left;
-//
-//        while (j < pivot) {
-//            if (arr[j] < arr[pivot]) {
-//                int temp = arr[i + 1];
-//                arr[i + 1] = arr[j];
-//                arr[j] = temp;
-//                i++;
-//            }
-//            j++;
-//        }
-//        int temp = arr[pivot];
-//        arr[pivot] = arr[i + 1];
-//        arr[i + 1] = temp;
-//        return i + 1;
-//
-//    }
-//
+    private void interchange(int[] arr, int left, int right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+    }
 
 }

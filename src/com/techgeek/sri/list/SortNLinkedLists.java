@@ -1,12 +1,10 @@
 package com.techgeek.sri.list;
 
-import com.techgeek.sri.Node;
-
 public class SortNLinkedLists {
 
-        public static Node SortedMerge(Node a, Node b)
+        public static ListNode SortedMerge(ListNode a, ListNode b)
         {
-            Node result = null;
+            ListNode result = null;
             /* Base cases */
             if (a == null)
                 return b;
@@ -28,7 +26,7 @@ public class SortNLinkedLists {
 
         // The main function that takes an array of lists
         // arr[0..last] and generates the sorted output
-        public static Node mergeKLists(Node arr[], int last)
+        public static ListNode mergeKLists(ListNode arr[], int last)
         {
             // repeat until only one list is left
             while (last != 0) {
@@ -54,11 +52,11 @@ public class SortNLinkedLists {
         }
 
         /* Function to print nodes in a given linked list */
-        public static void printList(Node node)
+        public static void printList(ListNode listNode)
         {
-            while (node != null) {
-                System.out.print(node.data + " ");
-                node = node.next;
+            while (listNode != null) {
+                System.out.print(listNode.data + " ");
+                listNode = listNode.next;
             }
         }
 
@@ -69,25 +67,25 @@ public class SortNLinkedLists {
 
             // an array of pointers storing the head nodes
             // of the linked lists
-            Node arr[] = new Node[k];
+            ListNode arr[] = new ListNode[k];
 
-            arr[0] = new Node(1);
-            arr[0].next = new Node(3);
-            arr[0].next.next = new Node(5);
-            arr[0].next.next.next = new Node(7);
+            arr[0] = new ListNode(1);
+            arr[0].next = new ListNode(3);
+            arr[0].next.next = new ListNode(5);
+            arr[0].next.next.next = new ListNode(7);
 
-            arr[1] = new Node(2);
-            arr[1].next = new Node(4);
-            arr[1].next.next = new Node(6);
-            arr[1].next.next.next = new Node(8);
+            arr[1] = new ListNode(2);
+            arr[1].next = new ListNode(4);
+            arr[1].next.next = new ListNode(6);
+            arr[1].next.next.next = new ListNode(8);
 
-            arr[2] = new Node(0);
-            arr[2].next = new Node(9);
-            arr[2].next.next = new Node(10);
-            arr[2].next.next.next = new Node(11);
+            arr[2] = new ListNode(0);
+            arr[2].next = new ListNode(9);
+            arr[2].next.next = new ListNode(10);
+            arr[2].next.next.next = new ListNode(11);
 
             // Merge all lists
-            Node head = mergeKLists(arr, k - 1);
+            ListNode head = mergeKLists(arr, k - 1);
             printList(head);
         }
 

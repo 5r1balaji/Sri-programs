@@ -31,7 +31,7 @@ class Node {
 public class LRUCacheImplementation {
     final Node head = new Node();
     final Node tail = new Node();
-    Map<Integer,Node> map_list;
+    Map<Integer, Node> map_list;
     int capacity;
 
     public LRUCacheImplementation(int capacity) {
@@ -84,20 +84,20 @@ public class LRUCacheImplementation {
         }
     }
 
-    private void add(Node node) {
-        Node node_next = head.next;
-        head.next = node;
-        node.next = node_next;
-        node.prev = head;
-        node_next.prev = node;
+    private void add(Node Node) {
+        Node Node_next = head.next;
+        head.next = Node;
+        Node.next = Node_next;
+        Node.prev = head;
+        Node_next.prev = Node;
     }
 
-    private void remove(Node node) {
-        Node node_prev = node.prev;
-        Node node_next = node.next;
+    private void remove(Node Node) {
+        Node Node_prev = Node.prev;
+        Node Node_next = Node.next;
 
-        node_prev.next = node_next;
-        node_next.prev = node_prev;
+        Node_prev.next = Node_next;
+        Node_next.prev = Node_prev;
 
     }
 }
