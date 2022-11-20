@@ -35,25 +35,42 @@ public class AverageDepthOfBinaryTree {
     }
 
     private static List<Double> findAvg(BinaryTree root) {
-        List<Double> values = new ArrayList<>();
-        Queue<BinaryTree> queue = new LinkedList<>();
-        queue.add(root);
-        while(!queue.isEmpty()) {
-            int count = queue.size();
-            double sum = 0;
-            for (int i =0;i<count;i++) {
-                BinaryTree tree = queue.poll();
-                sum += tree.data;
-                if (tree.left != null ) {
-                    queue.add(tree.left);
-                }
-                if (tree.right !=  null) {
-                    queue.add(tree.right);
-                }
-            }
-            values.add(sum/count);
+        List<Double> results = new ArrayList<>();
+        return getAverage(Collections.singletonList(root), results);
+    }
+
+    private static List<Double> getAverage(List<BinaryTree> nodes, List<Double> results) {
+        if (nodes.isEmpty()) {
+            return results;
         }
-        return values;
+        List<BinaryTree> children = new ArrayList<>();
+        Double avg = nodes.stream().mapToDouble(k -> mutateChildren(children, k)).average().orElse(0.00);
+         // Double avg = nodes.stream().mapToDouble(k -> k.data).average().orElse(0.00);
+        //List<BinaryTree> children = nodes.stream().flatMap(k -> getChildren(k).stream()).collect(Collectors.toList());
+        results.add(avg);
+        getAverage(children, results);
+        return results;
+    }
+
+   /* private static List<BinaryTree> getChildren(BinaryTree node) {
+        List<BinaryTree> children = new ArrayList<>();
+        if (node.left != null) {
+            children.add(node.left);
+        }
+        if (node.right != null) {
+            children.add(node.right);
+        }
+        return children;
+    }*/
+
+    private static double mutateChildren(List<BinaryTree> children, BinaryTree node) {
+        if (node.left != null) {
+            children.add(node.left);
+        }
+        if (node.right != null) {
+            children.add(node.right);
+        }
+        return node.data;
     }
 
 

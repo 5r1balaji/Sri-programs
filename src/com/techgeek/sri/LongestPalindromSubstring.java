@@ -13,9 +13,53 @@ package com.techgeek.sri;
 public class LongestPalindromSubstring {
 
     public static void main(String[] args) {
-        String str = "cbbd";
+        String str = "racecab";
         System.out.println(longestPalindrome(str));
+        System.out.println(longestPalindrome(str, 0 , 0));
+    }
 
+    /**
+     * The idea is explore all substrings from each index in the string.
+     * Only expand as long as the left and right values are equal.
+     * Find the length of the substring found on each index expansion from centre towards left and right.
+     * if the substring length is greater than the longestIndex so far,
+     * then update the start and end index of the longest substring.
+     *
+     * The while loop finishes with index outside the array boundaries i.e start--, end++, so reduce the index by 1
+     * i.e (end-start-1 ) becuase start = -1 and end = 7 for longest index ex.
+     *
+     * To find the index, reduce the maxLengthPalindromicSubstring by 1 so that the finding index will start from 0th place.
+     *
+     *
+     * @param str
+     * @param longestSubstringIndexStart
+     * @param longestSubstringIndexEnd
+     * @return
+     */
+    private static String longestPalindrome(String str, int longestSubstringIndexStart, int longestSubstringIndexEnd) {
+        if (str.length() < 1) {
+            return str;
+        }
+
+        for (int i = 0; i < str.length();i++) {
+            int len1 = expand(str, i, i);
+            int len2 = expand(str, i, i + 1);
+            int maxLengthPalindromicSubstring = Math.max(len1, len2);
+            if (longestSubstringIndexEnd - longestSubstringIndexStart + 1 < maxLengthPalindromicSubstring ) {
+                longestSubstringIndexStart = i - (maxLengthPalindromicSubstring - 1)/ 2;
+                longestSubstringIndexEnd = longestSubstringIndexStart + maxLengthPalindromicSubstring ;
+            }
+
+        }
+        return str.substring(longestSubstringIndexStart, longestSubstringIndexEnd );
+    }
+
+    private static int expand(String str, int start, int end) {
+        while (start >= 0 && end < str.length() && str.charAt(start) == str.charAt(end)) {
+            start--;
+            end++;
+        }
+        return end - start - 1;
     }
 
     public static String longestPalindrome(String s) {

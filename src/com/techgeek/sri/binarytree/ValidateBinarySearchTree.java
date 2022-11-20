@@ -1,6 +1,5 @@
 package com.techgeek.sri.binarytree;
 
-import com.techgeek.sri.binarytree.BinaryTree;
 
 public class ValidateBinarySearchTree {
 
@@ -23,10 +22,12 @@ public class ValidateBinarySearchTree {
         tree.left.right = new BinaryTree(7);
         tree.left.left = new BinaryTree(3);
 
-        //System.out.println(validate(tree,null,null));
-        System.out.println(validate2(tree,null,null));
+        System.out.println(validate(tree,null,null));
+        //System.out.println(validate2(tree,null,null));
 
     }
+
+
 
     /**
      * When processing the validation , the left and right Variables plays the role of the root node.
@@ -42,7 +43,7 @@ public class ValidateBinarySearchTree {
      * 4 will in the left variable. if (left.data > tree.data) means (4 > 7 ) is false
      * so the next condition is to check whether 7 is also greater than 4's parent
      *
-     * @param tree
+     * @param root
      * @param left
      * @param right
      * @return
@@ -58,20 +59,6 @@ public class ValidateBinarySearchTree {
                 return false;
             }
         return validate(tree.left,left,tree) && validate(tree.right,tree,right);
-    }
-
-
-    private static boolean validate2(BinaryTree tree, BinaryTree left, BinaryTree right) {
-        if (tree == null) {
-            return true;
-        }
-        if ( left != null && left.data > right.data) {
-            return false;
-        }
-        if ( right != null && right.data < left.data) {
-            return false;
-        }
-        return validate(tree.left,left,tree) && validate(tree.right, tree, right);
     }
 
 
