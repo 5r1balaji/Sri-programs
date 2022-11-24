@@ -23,9 +23,28 @@ public class MaximumSumAdjacentElements {
         int arr[] = {25, 35, 10, 100, 0, 5};
         //int arr[] = {1, 2, 3};
         int index = 0;
-        int sum1 = findMax(index+2,arr[index++],arr);
+        /*int sum1 = findMax(index+2,arr[index++],arr);
         int sum2 = findMax(index+2,arr[index],arr);
-        System.out.println(Math.max(sum1,sum2));
+        System.out.println(Math.max(sum1,sum2));*/
+        System.out.println(
+                Math.max(
+                            find(index + 2, arr[index], arr.length, arr),
+                            find(index + 3, arr[index + 1], arr.length, arr)
+                        )
+        );
+    }
+
+    static int find(int curr, int sum, int length, int[] arr) {
+        if (curr == length - 1) {
+            return sum + arr[curr];
+        }
+        if (curr < length - 1) {
+            return Math.max(
+                    find(curr + 2, sum + arr[curr], length, arr),
+                    find(curr + 3, sum + arr[curr + 1], length, arr)
+            );
+        }
+        return sum;
     }
 
     static int findMax(int index ,int sum ,int arr []) {
