@@ -5,34 +5,44 @@ package com.techgeek.sri.arrays;
  * Solution is by using Kadane's algo
  * find the maximum possible sum at an index and store that value in a variable
  * for ex a subarray can be formed at an index with either its value at index or summation of prev indices
+ *
+ * It has 3 variables to compare 1 is value at index arr[i] and maxSum which is the maximum sum.
+ * and sumSoFar which tells the maximum sum of subarray identified until the current index.
+ *
+ * when you add the value at currIndex , if it increases the sumSoFar then it means the subarray size increases.
+ * if it doesn't then it means the sequence stopped at index, which can also be beginning of a new subarray.
+ *
  *  at index 1 a subarray can be either -2,3 or 3 itself
  *  at index 2 a subarray can be either a maxsubarray(-2,3)  i.e -2,3,2 or 3,2 or 2
  */
 public class MaximumSumSubarray {
     public static void main(String[] args) {
-        int arr[]= {8,-19,5,-4,20};
-        System.out.println(findMaxSum(arr));
+        int arr[]= {8, - 1, 4, 0, 0, -10};
+        System.out.println("MaxSum: "+ findMaxSum(arr));
     }
 
     private static int findMaxSum(int[] arr) {
 
-        int maxSoFar= arr[0],sum = arr[0];
-        int start = 0,end =0;
-        for (int i = 1;i < arr.length;i++) {
-            maxSoFar = Math.max(maxSoFar + arr[i],arr[i]);// Either the current index or max so far with current index;
-            if (maxSoFar == arr[i]) {
-                start = i;
+        int maxSum = Integer.MIN_VALUE;
+        int sumSoFar = 0;
+        int start = -1, end = -1;
+
+        for (int currIndex = 0; currIndex < arr.length; currIndex++) {
+            sumSoFar = Math.max(sumSoFar + arr[currIndex], arr[currIndex]);
+            if (sumSoFar == arr[currIndex]) {
+                start = currIndex;
             }
-            if ( maxSoFar >= sum ) {
-                sum =  maxSoFar;
-                end = i;
+            if (sumSoFar >= maxSum && currIndex - start >= end - start) {
+                maxSum = sumSoFar;
+                end = currIndex;
             }
         }
-        for (int i = start;i<=end;i++) {
-            System.out.print(arr[i] + " ");
+        System.out.print("{");
+        for (int i = start; i <= end;i++) {
+            System.out.print(arr[i] + ",");
         }
-        System.out.println("\n");
-        return sum;
+        System.out.print("}");
+        return maxSum;
     }
 
 

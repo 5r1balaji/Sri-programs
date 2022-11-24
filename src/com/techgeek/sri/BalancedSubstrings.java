@@ -5,6 +5,7 @@ import java.util.Stack;
 /**
  * Given a string containing only R and L. Find the number of balanced substrings(equal number of L’s and R’s)
  * you will encounter where you can traverse only in the left-right direction.
+ * Substrings should not overlap.
  *
  * Example 1: RLRRLLRLRL  Answer: 4 (RL, RRLL, RL, RL)
  *
