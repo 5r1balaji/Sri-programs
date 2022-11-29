@@ -1,9 +1,9 @@
-package com.techgeek.sri.arrays;
+package com.techgeek.sri.binarysearch;
 
 public class FindStartEndofElementX {
     public static void main(String[] args) {
         int arr[] ={ 1,2,3,3,3,3,4,4,4,5,5,6,6,6,6};
-        int x = 4;
+        int x = 1;
         int first = findPosition(arr,x);
         int last = findPosition(arr,x+1);
         if (last == -1) {

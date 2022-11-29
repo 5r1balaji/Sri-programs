@@ -1,4 +1,4 @@
-package com.techgeek.sri.arrays;
+package com.techgeek.sri.binarysearch;
 
 /**
  * Find the smallest element index in a sorted and rotated array

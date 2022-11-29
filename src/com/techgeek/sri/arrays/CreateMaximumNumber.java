@@ -13,7 +13,8 @@ import java.util.Stack;
  * i = k - nums2.length
  * k - i is the maximum element that can chosen from nums2
  *
- *
+ *  Solution:
+ *  For a given k
  *
  *
  * Example 1:
@@ -30,6 +31,13 @@ public class CreateMaximumNumber {
         Arrays.stream(maxNumber(nums1,nums2,k)).forEach(System.out::print);
     }
 
+    /**
+     * This function will return k greater elements
+     * It will pop the elements from the stack only when the size of the stack is equal to k
+     * @param nums
+     * @param k
+     * @return
+     */
     private static int[] createMax(int[] nums, int k) {
         Stack<Integer> st = new Stack<>();
         int m = nums.length;

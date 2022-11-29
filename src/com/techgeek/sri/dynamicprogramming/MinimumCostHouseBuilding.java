@@ -1,4 +1,4 @@
-package com.techgeek.sri;
+package com.techgeek.sri.dynamicprogramming;
 
 import java.util.ArrayList;
 import java.util.List;

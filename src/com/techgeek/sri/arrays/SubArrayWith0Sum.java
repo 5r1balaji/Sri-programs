@@ -17,8 +17,8 @@ public class SubArrayWith0Sum {
     public static void main(String []args){
 
         //int[] arr = {4,2,-3,-1,-2,6,-3,-1,0,4};
-        int x = 0; // change it to 0 for 0 subarray
-        int[] arr = {1,4,-4,6,-6,3,5};
+        int x = 31; // change it to 0 for 0 subarray
+        int[] arr = {1,2,3,4,6,15};
         Map<Integer, Integer> sumMap = new HashMap<>();
         Integer sum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -27,7 +27,7 @@ public class SubArrayWith0Sum {
                 printSubArray(arr, 0, i);
             }
             if (sumMap.containsKey(sum)) {
-                printSubArray(arr, sumMap.get(sum)+1 , i);// Removing the added element from the index
+                printSubArray(arr, sumMap.get(sum) + 1 , i);// Removing the added element from the index
             }
             sumMap.put(sum + x, i);// Add the required displacement needed to find our required sum
 
@@ -35,7 +35,7 @@ public class SubArrayWith0Sum {
     }
     public static void printSubArray(int[] arr, int startIndex, int endIndex) {
         for (int i = startIndex; i <= endIndex; i++) {
-            System.out.print(arr[i] + " ");
+            System.out.print(arr[i] + ", ");
         }
         System.out.println();
     }
