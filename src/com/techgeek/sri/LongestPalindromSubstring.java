@@ -13,7 +13,7 @@ package com.techgeek.sri;
 public class LongestPalindromSubstring {
 
     public static void main(String[] args) {
-        String str = "racecab";
+        String str = "babad";
         System.out.println(longestPalindrome(str));
         System.out.println(longestPalindrome(str, 0 , 0));
     }

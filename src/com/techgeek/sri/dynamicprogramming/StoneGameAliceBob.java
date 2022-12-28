@@ -1,4 +1,4 @@
-package com.techgeek.sri.arrays;
+package com.techgeek.sri.dynamicprogramming;
 
 import java.util.Arrays;
 

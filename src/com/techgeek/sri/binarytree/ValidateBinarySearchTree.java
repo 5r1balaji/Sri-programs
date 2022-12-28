@@ -43,7 +43,7 @@ public class ValidateBinarySearchTree {
      * 4 will in the left variable. if (left.data > tree.data) means (4 > 7 ) is false
      * so the next condition is to check whether 7 is also greater than 4's parent
      *
-     * @param root
+     * @param tree
      * @param left
      * @param right
      * @return

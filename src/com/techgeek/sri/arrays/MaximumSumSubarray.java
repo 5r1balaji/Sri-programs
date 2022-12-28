@@ -17,7 +17,7 @@ package com.techgeek.sri.arrays;
  */
 public class MaximumSumSubarray {
     public static void main(String[] args) {
-        int arr[]= {4,-1,-2,3,4};
+        int arr[]= {4,-3,2,3,4};
         System.out.println("MaxSum: "+ findMaxSum(arr));
     }
 

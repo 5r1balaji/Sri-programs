@@ -6,8 +6,8 @@ import java.util.List;
 
 public class ReviewSuggestion {
     public static void main(String[] args) {
-        String word = "mouse";
-        String[] list = {"mouse","money","mousepad","monitor"};
+        String word = "mou";
+        String[] list = {"happy","limra","mouse","money","ousepad","onitor"};
         System.out.println(suggestedProducts(list,word));
     }
 

@@ -35,7 +35,7 @@ public class FindSubStringinString {
 
     public static void main(String[] args) {
         String str = "abxabcabcabxzdvsdf";
-        String pattern = "abcaby";
+        String pattern = "abcabc";
         int[] pat = getPattern(pattern);
         System.out.println(findSubstringPresent(str,pattern, pat));
     }

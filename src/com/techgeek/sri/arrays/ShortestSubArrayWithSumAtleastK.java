@@ -90,7 +90,7 @@ public class ShortestSubArrayWithSumAtleastK {
         int[] sumSoFar = new int[nums.length];
         sumSoFar[0] = nums[0];
         for (int i = 1;i < nums.length;i++) {
-            sumSoFar[i] = sumSoFar[i-1] + nums[i];
+            sumSoFar[i] = sumSoFar[i - 1] + nums[i];
         }
 
         ArrayDeque<Integer> queue = new ArrayDeque<>();

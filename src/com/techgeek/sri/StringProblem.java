@@ -18,14 +18,14 @@ public class StringProblem {
 
     static String leftShift(String s, int l) {
         if (l > 0){
-            s =  s.substring(l,s.length())+s.substring(0,l);
+            s =  s.substring(l) + s.substring(0, l);
         }
         return s;
     }
 
     static String rightShift(String s,int r) {
         if (r > 0){
-            s =  s.substring(s.length()-r,s.length())+s.substring(0,s.length()-r);
+            s =  s.substring(s.length() - r) + s.substring(0, s.length() - r);
         }
         return s;
     }

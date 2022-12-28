@@ -3,7 +3,7 @@ package com.techgeek.sri;
 public class MatchingString {
     public static void main(String[] args) {
         String s = "abcd";
-        String t = "efga";
+        String t = "ebcg";
         System.out.println(countMatching(s,t));
     }
 
