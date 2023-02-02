@@ -13,25 +13,28 @@ package com.techgeek.sri.binarysearch;
 public class MinimumElementinRotatedArray {
 
     public static void main(String[] args) {
-        int[] arr = {5,6,7,8,1,2,3,4};
+        int[] arr = {4,4,5,6,7,8,9,3,3,3,3,4,4,4};
         System.out.println(findSmallestElementIndex(arr, 0 , arr.length -1));
     }
 
     private static int findSmallestElementIndex(int[] arr, int low, int high) {
-        if (high <= low) {
-            return 0;
+        int res = arr[low];
+        while (low <= high) {
+            if (arr[low] < arr[high]) {
+                res = arr[low];
+                break;
+            }
+            int mid = (low + high) / 2;
+            if (arr[mid] > arr[mid + 1]) {
+                return arr[mid + 1];
+            } else if (arr[mid] < arr[mid - 1]) {
+                return arr[mid];
+            } else if (arr[mid] > arr[high]) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
         }
-        int mid = low + (high - low) / 2;
-        if (mid < high && arr[mid + 1] < arr[mid]) {
-            return mid + 1;
-        }
-        if (low < mid && arr[mid - 1] > arr[mid]) {
-            return mid;
-        }
-        if (arr[mid] > arr[high]) {
-            return findSmallestElementIndex(arr, mid + 1, high);
-        } else {
-            return findSmallestElementIndex(arr, low, mid - 1);
-        }
+        return res;
     }
 }

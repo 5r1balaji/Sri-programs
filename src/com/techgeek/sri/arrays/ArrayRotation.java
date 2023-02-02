@@ -8,7 +8,7 @@ import java.util.Stack;
 public class ArrayRotation {
     public static void main(String[] args) {
         int arr[] ={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-        int rotations = 10,arrayLength = arr.length;
+        int rotations = 3,arrayLength = arr.length;
         if (rotations >= arrayLength) {
             rotations = rotations % arrayLength ; //i.e if arrayLength = 5, rotations = 10,then 10/5
         }
@@ -29,10 +29,10 @@ public class ArrayRotation {
      */
     private static int[] rotateArray(int rotations, int arrayLength, int[] arr) {
         int i, shiftIndex = arrayLength - rotations - 1 ;
-        Stack<Integer> queue = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         // Elements to shift from back to front
         for (i = arrayLength - 1; i > arrayLength - rotations -1; i --) {
-            queue.add(arr[i]);
+            stack.add(arr[i]);
         }
         // Elements to shift from front to their rotated displacements
         while (shiftIndex >= 0 ) {
@@ -41,8 +41,8 @@ public class ArrayRotation {
         }
         i  = 0;
         // Backfill the copied rotated elements from the back
-        while (i < rotations && !queue.isEmpty() ) {
-            arr[i++] = queue.pop();
+        while (i < rotations && !stack.isEmpty() ) {
+            arr[i++] = stack.pop();
         }
         return arr;
     }

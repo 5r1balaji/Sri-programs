@@ -3,7 +3,7 @@ package com.techgeek.sri;
 
 
 import java.util.*;
-import java.util.function.Supplier;
+
 /*
 *//**
  *
@@ -57,7 +57,8 @@ import java.util.function.Supplier;
  *             1903 - 1
  *
  *
- * Write a function that takes the logs and returns the resource with the highest number of accesses in any 5 minute window, together with how many accesses it saw.
+ * Write a function that takes the logs and returns the resource with the highest number of accesses
+ * in any 5 minute window, together with how many accesses it saw.
  *
  * Expected Output:
  * most_requested_resource(logs1) # => ('resource_1', 3) [resource_1 is accessed at 416, 620, 620]

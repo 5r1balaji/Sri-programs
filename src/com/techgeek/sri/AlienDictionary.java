@@ -19,23 +19,21 @@ public class AlienDictionary {
     public static boolean isAlienSorted(String[] words, String order) {
 
 
-        for (int i = 0;i<words.length;i++) {
-            for (int j =i+1;j<words.length;j++) {
-                int min = Math.min(words[i].length(),words[j].length());
-                int equals = 0;
-                int k;
-                for ( k = 0;k < min;k++) {
-                    int iChar = getIndexOf(words[i].charAt(k),order);
-                    int jChar = getIndexOf(words[j].charAt(k),order);
-                    if (iChar < jChar) {
-                        break;
-                    } else if (jChar < iChar) {
-                        return false;
-                    } else if (k == min-1 && words[j].length() < words[i].length() ){
+        for (int i = 0; i < words.length - 1;i++) {
+            String first = words[i];
+            String second = words[i + 1];
+            for (int j = 0;j < first.length();j++) {
+                if (second.length() == j) {
+                    return false;
+                }
+                if (first.charAt(j) != second.charAt(j)) {
+                    if ( getIndexOf(second.charAt(j), order) < getIndexOf(first.charAt(j), order))  {
                         return false;
                     }
+                    break; // When the characters are not equal but they are in the correct
+                    // order then the remaining comparison is not required because the dictionary is in the next alphabet
+                    // so the comparison should be made with the next string
                 }
-
             }
         }
         return true;
@@ -47,8 +45,8 @@ public class AlienDictionary {
         return order.indexOf(ch);
     }
     public static void main(String[] args) {
-        String list[] = {"word","word"};
-        String order = "worldabcefghijkmnpqstuvxyz";
+        String list[] = {"hello","leetcode"};
+        String order = "hlabcdefgijkmnopqrstuvwxyz";
         System.out.println(isAlienSorted(list,order));
     }
 }

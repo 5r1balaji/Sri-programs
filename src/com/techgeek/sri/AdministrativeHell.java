@@ -9,7 +9,7 @@ import java.util.*;
  *      2       9             19         []
  *      3       9             11         []
  *      4       11            13         [2,3]
- *  Dependencies mean that work at Office i cannot be completed before visiting its dependencies
+ *  Dependencies mean that work at one Office cannot be completed before visiting its dependencies
  *  Find the number of offices that can be visited in the given time .
  *  Or Print the offices that can be visited in the given interval .(in hrs)
  *  It takes 1 hr in each office

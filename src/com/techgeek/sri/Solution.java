@@ -52,7 +52,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> list0 = new ArrayList<>();
+        /*ArrayList<String> list0 = new ArrayList<>();
         list0.add("orange");
 
         ArrayList<String> list1 = new ArrayList<>();
@@ -82,7 +82,21 @@ public class Solution {
         String a ="2001:0db8:85a3:0:0:8A2E:0370:7334:";
         String s[] = a.split(":");
         System.out.println(s[7]);
-       System.out.println(checkWinner(codeList,shoppingCart));
+       System.out.println(checkWinner(codeList,shoppingCart));*/
+        System.out.println(getSwapTime("001011"));// 0101001     0010010
 
+    }
+
+    public static int getSwapTime(String color) {
+        // Write your code here
+        int count0 = 0, count1 = 0;
+        for (int i = 0; i < color.length(); i++)
+        {
+            if (color.charAt(i) == '0')
+                count0++;
+            else
+                count1++;
+        }
+        return Math.min(count0,count1);
     }
 }
