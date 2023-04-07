@@ -13,8 +13,8 @@ package com.techgeek.sri;
 public class LongestPalindromSubstring {
 
     public static void main(String[] args) {
-        String str = "babad";
-        System.out.println(longestPalindrome(str));
+        String str = "raceca";
+        //System.out.println(longestPalindrome(str));
         System.out.println(longestPalindrome(str, 0 , 0));
     }
 
@@ -45,7 +45,7 @@ public class LongestPalindromSubstring {
             int len1 = expand(str, i, i);
             int len2 = expand(str, i, i + 1);
             int maxLengthPalindromicSubstring = Math.max(len1, len2);
-            if (longestSubstringIndexEnd - longestSubstringIndexStart + 1 < maxLengthPalindromicSubstring ) {
+            if (longestSubstringIndexEnd - longestSubstringIndexStart < maxLengthPalindromicSubstring ) {
                 longestSubstringIndexStart = i - (maxLengthPalindromicSubstring - 1)/ 2;
                 longestSubstringIndexEnd = longestSubstringIndexStart + maxLengthPalindromicSubstring ;
             }

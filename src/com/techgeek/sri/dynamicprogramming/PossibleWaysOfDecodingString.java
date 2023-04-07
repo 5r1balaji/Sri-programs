@@ -31,7 +31,7 @@ public class PossibleWaysOfDecodingString {
 
     public static void main(String[] args) {
         String input = "1210";
-        int [] mem = new int[input.length()+1];
+        int[] mem = new int [input.length()+1];
         int output = decodeString(input,input.length(),mem);
         System.out.println(output);
 

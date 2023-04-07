@@ -33,6 +33,23 @@ import java.util.TreeSet;
  * Explanation:
  * The first call overlaps with the second call. The third call also overlaps with the second call.
  * However, the first and the third call are not overlapping with each other
+ *
+ *
+ * Solution:
+ *  The solution consists of 2 parts i.e Iterate
+ *  1. Sorting the timestamp in the order of the start time and end time and iterate the timestamps.
+ *  2. Check if there is any outstanding agent who finished the call i.e The End time of previous call ends before the
+ *      new start time.
+ *     2.1  If there exists a timestamp in the TreeSet who finishes before the new start time .Then remove the entry
+ *     from the TreeSet i.e meaning The entry no longer exists because that employee is now assigned to a new call.
+ *     2.2 If there does not exist a timestamp who cannot finish the previous call before new start time, then either a
+ *     new agent needs to be assigned which can be identified by reducing the No_Of_Agents by -1 or
+ *     adding extra workforce. i.e Required_Agents++
+ *
+ *     TimeComplexity
+ *     O(N Log(N)) + O(N Log(N)) Because of adding new element into the TreeSet and sorting.
+ *     Space Complexity
+ *     O(N)
  */
 public class CustomerServiceCapacity {
     public static void main(String[] args) {

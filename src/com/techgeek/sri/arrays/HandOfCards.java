@@ -1,6 +1,6 @@
 package com.techgeek.sri.arrays;
 
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Alice has some number of cards and she wants to rearrange the cards into groups so that each group is
@@ -19,9 +19,53 @@ import java.util.PriorityQueue;
  */
 public class HandOfCards {
     public static void main(String[] args) {
-        int[] hand = {1,2,3,6,2,3,4,7,8};
-        int groupSize = 3;
-        System.out.println(canFindGroups(hand, groupSize));
+        int[] hand = {1,2,2,3};
+        int groupSize = 2;
+        //System.out.println(canFindGroups(hand, groupSize));
+        System.out.println(canFindGroups1(hand, groupSize));
+    }
+    // 1 2 2 3 3 4 6 7 8
+    private static boolean canFindGroups1(int[] hand, int groupSize) {
+        TreeMap<Integer, Integer> orderedHands = new TreeMap<>();
+        Arrays.stream(hand).forEach(i -> orderedHands.put(i, orderedHands.getOrDefault(i,0) + 1));
+        int groupsFound = 0;
+        Queue<Integer> handCollection = new LinkedList<>();
+
+            while (!orderedHands.keySet().isEmpty()) {
+                if (handCollection.isEmpty()) {
+                    Integer current = orderedHands.firstKey();
+                    if (current == null) {
+                        return false;
+                    }
+                    handCollection.add(current);
+                    updateHands(orderedHands, current);
+                } else {
+                    Integer next = orderedHands.higherKey(handCollection.peek());
+                    if (next == null) {
+                        return false;
+                    }
+                    handCollection.add(next);
+                    updateHands(orderedHands, next);
+                }
+
+                if (handCollection.size() == groupSize) {
+                    groupsFound++;
+                    handCollection.clear();
+                }
+                if (groupsFound == groupSize) {
+                    return true;
+                }
+            }
+            return false;
+        //}
+    }
+
+    private static void updateHands(TreeMap<Integer, Integer> orderedHands, Integer current) {
+        Integer count = orderedHands.get(current);
+        if (count - 1  == 0) {
+            orderedHands.remove(current);
+        }
+        else orderedHands.put(current, count - 1);
     }
 
     private static boolean canFindGroups(int[] hand, int groupSize) {

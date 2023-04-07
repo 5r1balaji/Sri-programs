@@ -13,7 +13,8 @@ import java.util.List;
  *   00 11 22 33 represent users
  *
  *   if 0 donates to 1 it will 0,1 = 1
- *   jth value represents the user who received donation i represent from user{1,0,0,0},
+ *   jth value represents the user who received donation i represent from user
+ *                             {1,0,0,0},
  *                             {0,1,0,0},
  *                             {0,0,1,0},
  *                             {0,0,0,1}

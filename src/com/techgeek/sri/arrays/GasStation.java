@@ -45,7 +45,7 @@ public class GasStation {
         for (int i = 0;i < pumps.length; i++) {
             total += pumps[i][0] - pumps[i][1];
             if (total < 0) {
-                position = i + 1;
+                position  = i + 1;
                 total = 0;
             }
         }

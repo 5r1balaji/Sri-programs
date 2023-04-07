@@ -142,6 +142,7 @@ public class LogPrinting {
 
             if (resourceCounts.containsKey(resource)) {
                 Queue<Integer> logQueue = resourceCounts.get(resource);
+                // Make room for new time log
                 while (!logQueue.isEmpty() && time > logQueue.peek() + windowLimit ) {
                     logQueue.poll();
                 }

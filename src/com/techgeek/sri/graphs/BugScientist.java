@@ -52,8 +52,8 @@ public class BugScientist {
                 new Integer[] { 3, 5 },
                 new Integer[] { 4, 2 }
         );
-
-
+        // M -> F -> M -> F -> M
+        // 1 -> 3 -> 5 -> 4 -> 2
         Map<Integer, Set<Integer>> graph = new HashMap<>();
 
         for (Integer[] interaction : interactions) {

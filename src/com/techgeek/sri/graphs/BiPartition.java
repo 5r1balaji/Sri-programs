@@ -1,4 +1,4 @@
-package com.techgeek.sri.arrays;
+package com.techgeek.sri.graphs;
 
 import java.util.*;
 

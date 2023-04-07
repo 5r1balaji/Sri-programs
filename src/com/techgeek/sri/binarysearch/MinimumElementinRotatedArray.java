@@ -13,7 +13,7 @@ package com.techgeek.sri.binarysearch;
 public class MinimumElementinRotatedArray {
 
     public static void main(String[] args) {
-        int[] arr = {4,4,5,6,7,8,9,3,3,3,3,4,4,4};
+        int[] arr = {4,4,5,6,7,8,9,3};
         System.out.println(findSmallestElementIndex(arr, 0 , arr.length -1));
     }
 
